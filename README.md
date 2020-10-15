@@ -1,2 +1,3 @@
 # MacPyGame
-P3OCR
+
+Projet Pygame for P3
