@@ -113,7 +113,7 @@ while continuer:
 		#Affichages aux nouvelles positions
 		windows.blit(fond, (0,0))
 		niveau.afficher(windows)
-		windows.blit(dk.direction, (mg.x, mg.y))
+		windows.blit(mg.direction, (mg.x, mg.y))
         #mg.direction = l'image dans la bonne direction
 
         pygame.display.flip()
