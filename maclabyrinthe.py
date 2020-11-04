@@ -1,4 +1,4 @@
-# !/usr/bin/python3
+#!/usr/bin/python3.8
 # -*- coding: Utf-8 -*
 
 """
@@ -8,116 +8,142 @@ Python script
 Files:
 """
 import pygame
-from pygame.locals import *
 
 from classes import *
 from constantes import *
 
-pygame.init()
+# Open window pygame
+pygame.display.set_icon(ICON)
+pygame.display.set_caption(TITLE_WINDOW)
 
-# Open windows pygame (sqare : width = height)
-fenetre = pygame.display.set_mode((side_windows, side_windows))
-# Icone
-icone = pigame.image.load(image_icone)
-pygame.display.set_icon(icone)
-# Title
-pygame.display.set_caption(title_windows)
-#BOUCLE PRINCIPALE
-continuer = 1
-while continuer:
-	#Chargement et affichage de l'écran d'accueil
-	accueil = pygame.image.load(image_accueil).convert()
-	fenetre.blit(accueil, (0,0))
+# Main loop
+main_loop = True
+while main_loop:
 
-	#Rafraichissement
+	# Load home screen
+	window.blit(black_ground, (0, 0))
+	window.blit(home, (30, 30))
+	# Reload display
 	pygame.display.flip()
 
-	#On remet ces variables à 1 à chaque tour de boucle
-	continuer_jeu = 1
-	continuer_accueil = 1
+	# Home loop
+	home_loop = True
+	while home_loop:
 
-	#BOUCLE D'ACCUEIL
-	while continuer_accueil:
-
-		#Limitation de vitesse de la boucle
-		pygame.time.Clock().tick(30)
-
+		# Time loop
+		pygame.time.clock().tick(30)
 		for event in pygame.event.get():
+			# Exit the program
+			if event.type == quit:
+				print("See you later")
+				main_loop = False
+				home_loop = False
+				Game_loop = False
 
-			#Si l'utilisateur quitte, on met les variables
-			#de boucle à 0 pour n'en parcourir aucune et fermer
-			if event.type == QUIT or event.type == KEYDOWN
-			and event.key == K_ESCAPE:
-				continuer_accueil = 0
-				continuer_jeu = 0
-				continuer = 0
-				#Variable de choix du niveau
-				choix = 0
+			# Enter in the game loop
+			if event.type == KEYDOWN and envent.key == K_RETURN:
+				# enter the Game
+				window.blit(BACKGROUND, (30, 30))
+                window.blit(WELCOME, (120, 150))
+                pygame.display.flip()
+                time.sleep(1)
 
-		       # elif event.type == KEYDOWN:
-				#Lancement du niveau
-			#	if event.key == K_F1:
-			#		continuer_accueil = 0	#On quitte l'accueil
-			#		choix = 'n1'		#On définit le niveau à charger
-				#Lancement du niveau 2
-			#	elif event.key == K_F2:
-			#		continuer_accueil = 0
-			#		choix = 'n2'
+				HOME_LOOP = False
+                GAME_LOOP = True
 
+                #Load the game's map
+                FILE = "map/N1.txt"
 
+    if FILE != "": #We make sure that the file really exists and is not empty
 
-	#on vérifie que le joueur a bien fait un choix de niveau
-	#pour ne pas charger s'il quitte
-#	if choix != 0:
-		#Chargement du fond
-		fond = pygame.image.load().convert()
+        #load the background
+        window.blit(BACKGROUND, (30, 30))
 
-		#Génération d'un niveau à partir d'un fichier
-		niveau = Niveau(choix)
-		niveau.generer()
-		niveau.afficher(fenetre)
+        #generate the labyrinth
+        labyrinth = Map(FILE)
+        labyrinth.generate()
+        labyrinth.display(window)
 
-		#Création de MacGyver
-		mg = Perso()
+        #Get the items in the labyrinthe
 
+        syringe = Elements("syringe", SYRINGE, labyrinth)
+        syringe.locate_elements()
+        syringe.pin_elements()
 
-	#BOUCLE DE JEU
-	while continuer_jeu:
+        ether = Elements("ether", ETHER, labyrinth)
+        ether.locate_elements()
+        ether.pin_elements()
 
-		#Limitation de vitesse de la boucle
-		pygame.time.Clock().tick(30)
+        tube = Elements("tube", TUBE, labyrinth)
+        tube.locate_elements()
+        tube.pin_elements()
 
-		for event in pygame.event.get():
+        #And God create an Heroe
+    	MacGyver = Heroe(labyrinth)
 
-			#Si l'utilisateur quitte, on met la variable qui continue le jeu
-			#ET la variable générale à 0 pour fermer la fenêtre
-			if event.type == QUIT:
-				continuer_jeu = 0
-				continuer = 0
+    #Initialyse at every game_loop an empty list to put the elements inside
+    TOOLS = []
+    while  GAME_LOOP:
 
-			elif event.type == KEYDOWN:
-				#Si l'utilisateur presse Echap ici, on revient seulement au menu
-				if event.key == K_ESCAPE:
-					continuer_jeu = 0
+        pygame.time.Clock().tick(30)
+        for event in pygame.event.get():
 
-				#Touches de déplacement de MacGyver
-				elif event.key == K_RIGHT:
-					mg.deplacer('droite')
-				elif event.key == K_LEFT:
-					mg.deplacer('gauche')
-				elif event.key == K_UP:
-					mg.deplacer('haut')
-				elif event.key == K_DOWN:
-					mg.deplacer('bas')
+            #Quit the program
+            if event.type == QUIT:
+                print("Bye bye!")
+                MAIN_LOOP = False
+                GAME_LOOP = False
 
-		#Affichages aux nouvelles positions
-		windows.blit(fond, (0,0))
-		niveau.afficher(windows)
-		windows.blit(mg.direction, (mg.x, mg.y))
-        #mg.direction = l'image dans la bonne direction
+            if event.type == KEYDOWN:
+
+                #Quit the game and go back Home
+                if event.key == K_ESCAPE:
+                    GAME_LOOP = False
+
+                #Move our heroe!
+                if event.key == K_RIGHT:
+                    MacGyver.move("right")
+                if event.key == K_LEFT:
+                    MacGyver.move("left")
+                if event.key == K_DOWN:
+                    MacGyver.move("bottom")
+                if event.key == K_UP:
+                    MacGyver.move("up")
+
+        #Display the game board
+        window.blit(BACKGROUND, (0+30, 0+30))
+        labyrinth.display(window)
+
+        #Add MacGyver in the Labyrinth with his position
+        window.blit(MG, (MacGyver.x + 30, MacGyver.y + 30)) # + 30 for the offset of the black outline
+
+        #Add conditionnal display of Element
+
+        tube.display_elements(window, MacGyver, TOOLS)
+        syringe.display_elements(window, MacGyver, TOOLS)
+        ether.display_elements(window, MacGyver, TOOLS)
 
         pygame.display.flip()
 
-		#Victoire -> Retour à l'accueil
-		if niveau.structure[mg.case_y][mg.case_x] == 'a':
-			continuer_jeu = 0
+
+        if labyrinth.grid[MacGyver.sprite_x][MacGyver.sprite_y] == "a":
+
+            #The gamer wins if he has the tree elements
+            if len(TOOLS) < 3:
+
+                #DISPLAY GAME OVER
+                window.blit(GAMEOVER, (150+30, 150+30))
+                pygame.display.flip()
+                time.sleep(2)
+
+                print("You loose")
+                GAME_LOOP = False
+
+            if len(TOOLS) == 3:
+                #DISPLAY YOU WIN
+                window.blit(WIN, (100+30, 150+30))
+                pygame.display.flip()
+                time.sleep(2)
+
+                print("You win!")
+                GAME_LOOP = False
