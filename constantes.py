@@ -18,43 +18,36 @@ SCREEN_SIZE = ((NB_SPRITE + 2) * SPRITE_SIZE, (NB_SPRITE + 2) * SPRITE_SIZE)
 
 #Display video of window game
 window = pygame.display.set_mode(SCREEN_SIZE)
-TITLE_WINDOW = "Help to Escape!"
-ICONE = pygame.image.load("data/guardian.png").convert_alpha()
+TITLE_WINDOW = "MacGyver"
+ICONE = pygame.image.load("data/").convert_alpha()
 
 #Screen "home"
-HOME = pygame.image.load("data/ether.png").convert()
+HOME = pygame.image.load("data/").convert()
 
 #Screen "Welcome to the game"
-WELCOME = pygame.image.load("data/lifebar.png").convert_alpha()
+WELCOME = pygame.image.load("data/").convert_alpha()
 
 #Screen Pick-up Elements
-PICKUP = pygame.image.load("pictures/pickup.png").convert_alpha()
+PICKUP = pygame.image.load("data/").convert_alpha()
 
 #Screen Game-Over
-GAMEOVER = pygame.image.load("pictures/game_over.png").convert_alpha()
+GAMEOVER = pygame.image.load("data/").convert_alpha()
 
 #Screen You win
-WIN = pygame.image.load("pictures/win.png").convert_alpha()
+WIN = pygame.image.load("data/").convert_alpha()
 
 #Game background
-BLACK_GROUND = pygame.image.load("pictures/back_ground.png").convert()
-BACKGROUND = pygame.image.load("pictures/background.jpg").convert()
+BLACK_GROUND = pygame.image.load("data/").convert()
+BACKGROUND = pygame.image.load("data/").convert()
 
 #kind of sprite
-WALL = pygame.image.load("pictures/wall.png")
-ARRIVAL = pygame.image.load("pictures/guardian.png").convert_alpha()
+WALL = pygame.image.load("data/")
+ARRIVAL = pygame.image.load("data/").convert_alpha()
 
 #kind of tools
-TUBE = pygame.image.load("pictures/tube.png").convert_alpha()
-ETHER = pygame.image.load("pictures/ether.png").convert_alpha()
-SYRINGE = pygame.image.load("pictures/syringe.png").convert_alpha()
+TUBE = pygame.image.load("data/").convert_alpha()
+ETHER = pygame.image.load("data/").convert_alpha()
+SYRINGE = pygame.image.load("data/").convert_alpha()
 
 #Display MacGyver
-MG = pygame.image.load("pictures/MacGyver.png").convert_alpha()
-
-#variable contain map
-FILE = ""
-
-#sound
-SOUNDTRACK = pygame.mixer.Sound("sound/soundtrack.wav")
-JINGLE = pygame.mixer.Sound("sound/little_sound.wav")
+MG = pygame.image.load("data/").convert_alpha()
