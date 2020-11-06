@@ -7,7 +7,7 @@ Game in which we have to move MacGyver to the Guardian through a labyrinth.
 Python script
 Files:
 """
-#import pygame
+import pygame
 
 from classes import *
 from constantes import *
