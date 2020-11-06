@@ -7,7 +7,7 @@ Game in which we have to move MacGyver to the Guardian through a labyrinth.
 Python script
 Files:
 """
-import pygame
+#import pygame
 
 from classes import *
 from constantes import *
@@ -17,32 +17,34 @@ pygame.display.set_icon(ICON)
 pygame.display.set_caption(TITLE_WINDOW)
 
 # Main loop
-main_loop = True
-while main_loop:
+MAIN_LOOP = True
+while MAIN_LOOP:
 
 	# Load home screen
-	window.blit(black_ground, (0, 0))
-	window.blit(home, (30, 30))
+	window.blit(BLACK_GROUND, (0, 0))
+    window.blit(HOME, (30, 30))
 	# Reload display
 	pygame.display.flip()
 
 	# Home loop
-	home_loop = True
-	while home_loop:
+	HOME_LOOP = True
+    while HOME_LOOP:
 
 		# Time loop
 		pygame.time.clock().tick(30)
+
 		for event in pygame.event.get():
 			# Exit the program
-			if event.type == quit:
+			if event.type == QUIT:
 				print("See you later")
-				main_loop = False
-				home_loop = False
-				Game_loop = False
+				MAIN_LOOP = False
+                HOME_LOOP = False
+                GAME_LOOP = False
 
 			# Enter in the game loop
 			if event.type == KEYDOWN and envent.key == K_RETURN:
-				# enter the Game
+				#enter the Game
+				SOUNDTRACK.stop()
 				window.blit(BACKGROUND, (30, 30))
                 window.blit(WELCOME, (120, 150))
                 pygame.display.flip()
@@ -115,7 +117,7 @@ while main_loop:
         labyrinth.display(window)
 
         #Add MacGyver in the Labyrinth with his position
-        window.blit(MG, (MacGyver.x + 30, MacGyver.y + 30)) # + 30 for the offset of the black outline
+        window.blit(MG, (MacGyver.x + 30, MacGyver.y + 30))
 
         #Add conditionnal display of Element
 
