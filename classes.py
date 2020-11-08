@@ -4,7 +4,7 @@
 import random
 import time
 
-from constant import*
+from constantes import*
 
 class Map():
     #the pygame window.
@@ -60,7 +60,7 @@ class Elements():
         coordinates = ()
         num_line = 0
         while num_line < len(self.labyrinth.grid):
-            num_cell = 1 
+            num_cell = 1
             while num_cell < len(self.labyrinth.grid[0]):
                 if self.labyrinth.grid[num_line][num_cell] == "0":
                     coordinates = (num_line, num_cell)
@@ -87,7 +87,7 @@ class Elements():
         if self.labyrinth.grid[MacGyver.sprite_y][MacGyver.sprite_x] == self.name:
 
             #dysplay the pick-up of the elements
-            window.blit(PICKUP, (90 + 30, 120 + 30))
+            #window.blit(PICKUP, (90 + 30, 120 + 30))
             pygame.display.flip()
             #JINGLE.play()
             time.sleep(1)

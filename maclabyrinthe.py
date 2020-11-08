@@ -7,56 +7,59 @@ Game in which we have to move MacGyver to the Guardian through a labyrinth.
 Python script
 Files:
 """
-import pygame
+from constantes import*
+from classes import*
 
-from classes import *
-from constantes import *
 
-# Open window pygame
-pygame.display.set_icon(ICON)
+#Open game window
+pygame.display.set_icon(ICONE)
 pygame.display.set_caption(TITLE_WINDOW)
 
-# Main loop
+
+#MAIN
 MAIN_LOOP = True
 while MAIN_LOOP:
 
-	# Load home screen
-	window.blit(BLACK_GROUND, (0, 0))
+    #Load home screen
+    window.blit(BLACK_GROUND, (0, 0))
     window.blit(HOME, (30, 30))
-	# Reload display
-	pygame.display.flip()
+    #Reload display
+    pygame.display.flip()
 
-	# Home loop
-	HOME_LOOP = True
+
+#HOME LOOP
+    HOME_LOOP = True
     while HOME_LOOP:
 
-		# Time loop
-		pygame.time.clock().tick(30)
+        #loop delay
+        pygame.time.Clock().tick(30)
 
-		for event in pygame.event.get():
-			# Exit the program
-			if event.type == QUIT:
-				print("See you later")
-				MAIN_LOOP = False
+        for event in pygame.event.get():
+            #Quit the program
+            if event.type == QUIT:
+                print("Bye bye!")
+                MAIN_LOOP = False
                 HOME_LOOP = False
                 GAME_LOOP = False
 
-			# Enter in the game loop
-			if event.type == KEYDOWN and envent.key == K_RETURN:
-				#enter the Game
-				SOUNDTRACK.stop()
-				window.blit(BACKGROUND, (30, 30))
-                window.blit(WELCOME, (120, 150))
+            #Quit home loop to enter in game loop
+            if event.type == KEYDOWN and event.key == K_RETURN:
+
+                #WELCOME TO THE GAME
+                #SOUNDTRACK.stop()
+                window.blit(BACKGROUND, (30, 30))
+                #window.blit(WELCOME, (120, 150))
                 pygame.display.flip()
                 time.sleep(1)
 
-				HOME_LOOP = False
+
+                HOME_LOOP = False
                 GAME_LOOP = True
 
                 #Load the game's map
                 FILE = "map/N1.txt"
 
-    if FILE != "": #We make sure that the file really exists and is not empty
+    if FILE != "":
 
         #load the background
         window.blit(BACKGROUND, (30, 30))
@@ -76,14 +79,14 @@ while MAIN_LOOP:
         ether.locate_elements()
         ether.pin_elements()
 
-        tube = Elements("tube", TUBE, labyrinth)
-        tube.locate_elements()
-        tube.pin_elements()
+        cut = Elements("cut", CUT, labyrinth)
+        cut.locate_elements()
+        cut.pin_elements()
 
         #And God create an Heroe
-    	MacGyver = Heroe(labyrinth)
+        MacGyver = Heroe(labyrinth)
 
-    #Initialyse at every game_loop an empty list to put the elements inside
+#GAME
     TOOLS = []
     while  GAME_LOOP:
 
@@ -118,10 +121,9 @@ while MAIN_LOOP:
 
         #Add MacGyver in the Labyrinth with his position
         window.blit(MG, (MacGyver.x + 30, MacGyver.y + 30))
-
         #Add conditionnal display of Element
 
-        tube.display_elements(window, MacGyver, TOOLS)
+        cut.display_elements(window, MacGyver, TOOLS)
         syringe.display_elements(window, MacGyver, TOOLS)
         ether.display_elements(window, MacGyver, TOOLS)
 
@@ -133,8 +135,8 @@ while MAIN_LOOP:
             #The gamer wins if he has the tree elements
             if len(TOOLS) < 3:
 
-                #DISPLAY GAME OVER
-                window.blit(GAMEOVER, (150+30, 150+30))
+                #GAME OVER
+                #window.blit(GAMEOVER, (150+30, 150+30))
                 pygame.display.flip()
                 time.sleep(2)
 
@@ -142,8 +144,8 @@ while MAIN_LOOP:
                 GAME_LOOP = False
 
             if len(TOOLS) == 3:
-                #DISPLAY YOU WIN
-                window.blit(WIN, (100+30, 150+30))
+                #YOU WIN
+                #window.blit(WIN, (100+30, 150+30))
                 pygame.display.flip()
                 time.sleep(2)
 

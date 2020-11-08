@@ -19,35 +19,38 @@ SCREEN_SIZE = ((NB_SPRITE + 2) * SPRITE_SIZE, (NB_SPRITE + 2) * SPRITE_SIZE)
 #Display video of window game
 window = pygame.display.set_mode(SCREEN_SIZE)
 TITLE_WINDOW = "MacGyver"
-ICONE = pygame.image.load("data/").convert_alpha()
+ICONE = pygame.image.load("data/MacGyver_Logo.png").convert_alpha()
 
 #Screen "home"
-HOME = pygame.image.load("data/").convert()
+HOME = pygame.image.load("data/Acceuil.png").convert()
 
 #Screen "Welcome to the game"
-WELCOME = pygame.image.load("data/").convert_alpha()
+#WELCOME = pygame.image.load("data/").convert_alpha()
 
 #Screen Pick-up Elements
-PICKUP = pygame.image.load("data/").convert_alpha()
+#PICKUP = pygame.image.load("data/").convert_alpha()
 
 #Screen Game-Over
-GAMEOVER = pygame.image.load("data/").convert_alpha()
+#GAMEOVER = pygame.image.load("data/").convert_alpha()
 
 #Screen You win
-WIN = pygame.image.load("data/").convert_alpha()
+#WIN = pygame.image.load("data/").convert_alpha()
 
 #Game background
-BLACK_GROUND = pygame.image.load("data/").convert()
-BACKGROUND = pygame.image.load("data/").convert()
+BLACK_GROUND = pygame.image.load("data/Backwindow.png").convert()
+BACKGROUND = pygame.image.load("data/Back.png").convert()
 
 #kind of sprite
-WALL = pygame.image.load("data/")
-ARRIVAL = pygame.image.load("data/").convert_alpha()
+WALL = pygame.image.load("data/Wall.png")
+ARRIVAL = pygame.image.load("data/guardian.png").convert_alpha()
 
 #kind of tools
-TUBE = pygame.image.load("data/").convert_alpha()
-ETHER = pygame.image.load("data/").convert_alpha()
-SYRINGE = pygame.image.load("data/").convert_alpha()
+CUT = pygame.image.load("data/Cut.png").convert_alpha()
+ETHER = pygame.image.load("data/Ether.png").convert_alpha()
+SYRINGE = pygame.image.load("data/Seringue.png").convert_alpha()
 
 #Display MacGyver
-MG = pygame.image.load("data/").convert_alpha()
+MG = pygame.image.load("data/MacGyver.png").convert_alpha()
+
+#Map
+FILE = ""
