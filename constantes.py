@@ -24,12 +24,6 @@ ICONE = pygame.image.load("data/MacGyver_Logo.png").convert_alpha()
 #Screen "home"
 HOME = pygame.image.load("data/Acceuil.png").convert()
 
-#Screen "Welcome to the game"
-#WELCOME = pygame.image.load("data/").convert_alpha()
-
-#Screen Pick-up Elements
-#PICKUP = pygame.image.load("data/").convert_alpha()
-
 #Screen Game-Over
 #GAMEOVER = pygame.image.load("data/").convert_alpha()
 

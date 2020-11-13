@@ -84,15 +84,9 @@ class Elements():
         if self.labyrinth.grid[self.sprite_y][self.sprite_x] == self.name:
             window.blit(self.surface, (self.x + 30, self.y + 30))
 
-        if self.labyrinth.grid[MacGyver.sprite_y][MacGyver.sprite_x] == self.name:
+        if self.labyrinth.grid[MacGyver.sprite_y][MacGyver.sprite_x]==self.name:
 
-            #dysplay the pick-up of the elements
-            #window.blit(PICKUP, (90 + 30, 120 + 30))
-            pygame.display.flip()
-            #JINGLE.play()
-            time.sleep(1)
-
-            print("Yeah! You caught the {}!".format(self.name))
+            #print("Yeah! You caught the {}!".format(self.name))
             self.labyrinth.grid[MacGyver.sprite_y][MacGyver.sprite_x] = "0"
             TOOLS.append(self.name)
 

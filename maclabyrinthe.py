@@ -32,7 +32,7 @@ while MAIN_LOOP:
     while HOME_LOOP:
 
         #loop delay
-        pygame.time.Clock().tick(30)
+        pygame.time.Clock().tick(10)
 
         for event in pygame.event.get():
             #Quit the program
@@ -44,14 +44,6 @@ while MAIN_LOOP:
 
             #Quit home loop to enter in game loop
             if event.type == KEYDOWN and event.key == K_RETURN:
-
-                #WELCOME TO THE GAME
-                #SOUNDTRACK.stop()
-                window.blit(BACKGROUND, (30, 30))
-                #window.blit(WELCOME, (120, 150))
-                pygame.display.flip()
-                time.sleep(1)
-
 
                 HOME_LOOP = False
                 GAME_LOOP = True
@@ -137,8 +129,8 @@ while MAIN_LOOP:
 
                 #GAME OVER
                 #window.blit(GAMEOVER, (150+30, 150+30))
-                pygame.display.flip()
-                time.sleep(2)
+                #pygame.display.flip()
+                #time.sleep(2)
 
                 print("You loose")
                 GAME_LOOP = False
@@ -146,8 +138,8 @@ while MAIN_LOOP:
             if len(TOOLS) == 3:
                 #YOU WIN
                 #window.blit(WIN, (100+30, 150+30))
-                pygame.display.flip()
-                time.sleep(2)
+                #pygame.display.flip()
+                #time.sleep(2)
 
                 print("You win!")
                 GAME_LOOP = False
