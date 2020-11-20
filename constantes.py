@@ -25,10 +25,10 @@ ICONE = pygame.image.load("data/MacGyver_Logo.png").convert_alpha()
 HOME = pygame.image.load("data/Acceuil.png").convert()
 
 #Screen Game-Over
-#GAMEOVER = pygame.image.load("data/").convert_alpha()
+GAMEOVER = pygame.image.load("data/youlose.png").convert_alpha()
 
 #Screen You win
-#WIN = pygame.image.load("data/").convert_alpha()
+WIN = pygame.image.load("data/youwin.png").convert_alpha()
 
 #Game background
 BLACK_GROUND = pygame.image.load("data/Backwindow.png").convert()

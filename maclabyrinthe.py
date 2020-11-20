@@ -128,18 +128,18 @@ while MAIN_LOOP:
             if len(TOOLS) < 3:
 
                 #GAME OVER
-                #window.blit(GAMEOVER, (150+30, 150+30))
-                #pygame.display.flip()
-                #time.sleep(2)
+                window.blit(GAMEOVER, (30, 30))
+                pygame.display.flip()
+                time.sleep(2)
 
                 print("You loose")
                 GAME_LOOP = False
 
             if len(TOOLS) == 3:
                 #YOU WIN
-                #window.blit(WIN, (100+30, 150+30))
-                #pygame.display.flip()
-                #time.sleep(2)
+                window.blit(WIN, (30, 30))
+                pygame.display.flip()
+                time.sleep(2)
 
                 print("You win!")
                 GAME_LOOP = False
