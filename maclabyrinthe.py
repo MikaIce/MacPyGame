@@ -8,8 +8,9 @@ Python script
 Files:
 """
 from constantes import*
-from classes import*
-
+from map import*
+from personnage import*
+from elements import*
 
 #Open game window
 pygame.display.set_icon(ICONE)
