@@ -9,17 +9,17 @@ from constantes import*
 class Elements():
 
     def __init__(self, name, SURFACE, labyrinth):
-        #Position in pixel:
+        """Position in pixel:"""
         self.x = 0
         self.y = 0
-        #Position in square:
+        """Position in square:"""
         self.sprite_x = 0
         self.sprite_y = 0
-        #Name of the elements
+        """Name of the elements"""
         self.name = name
-        #Labyrinth
+        """Labyrinth"""
         self.labyrinth = labyrinth
-        #Surface
+        """Surface"""
         self.surface = SURFACE
 
     def locate_elements(self):
@@ -54,10 +54,9 @@ class Elements():
 
         if self.labyrinth.grid[MacGyver.sprite_y][MacGyver.sprite_x]==self.name:
 
-            #print("Yeah! You caught the {}!".format(self.name))
             self.labyrinth.grid[MacGyver.sprite_y][MacGyver.sprite_x] = "0"
             TOOLS.append(self.name)
 
-       # display the scoreboard
+       #display the scoreboard
         if self.name in TOOLS:
             window.blit(self.surface, (TOOLS.index(self.name) * SPRITE_SIZE, 0))

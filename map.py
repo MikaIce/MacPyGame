@@ -3,18 +3,17 @@
 
 import random
 import time
-
 from constantes import*
 
 class Map():
-    #the pygame window.
+    """ the pygame window map. """
 
     def __init__(self, file):
         self.file = file
         self.grid = []
 
     def generate(self):
-        #the file.txt.
+        """ the file.txt. """
         frame = []
 
         with open(self.file, "r") as file:

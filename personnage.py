@@ -9,10 +9,10 @@ from constantes import*
 class Heroe():
 
     def __init__(self, labyrinth):
-        #Position in pixel:
+        """ Position in pixel: """
         self.x = 0
         self.y = 0
-        #Position in square:
+        """ Position in square: """
         self.sprite_x = 0
         self.sprite_y = 0
         #Labyrinth
@@ -20,7 +20,7 @@ class Heroe():
 
     def move(self, direction):
 
-        #Move to the right
+        """ Move to the right """
         if direction == "right":
             if self.sprite_x < NB_SPRITE -1:
                 if self.labyrinth.grid[self.sprite_y][self.sprite_x+1] != "w":
@@ -28,7 +28,7 @@ class Heroe():
                     #Position in pixel:
                     self.x = self.sprite_x * SPRITE_SIZE
 
-        #Move to the left
+        """Move to the left """
         if direction == "left":
             if self.sprite_x > 0:
                 if self.labyrinth.grid[self.sprite_y][self.sprite_x-1] != "w":
@@ -37,7 +37,7 @@ class Heroe():
                     #Position in pixel:
                     self.x = self.sprite_x * SPRITE_SIZE
 
-        #Move to the bottom
+        """Move to the bottom """
         if direction == "bottom":
             if self.sprite_y < NB_SPRITE-1:
                 if self.labyrinth.grid[self.sprite_y+1][self.sprite_x] != "w":
@@ -47,7 +47,7 @@ class Heroe():
                     self.y = self.sprite_y * SPRITE_SIZE
 
 
-        #Move to the top
+        """Move to the top"""
         if direction == "up":
             if self.sprite_y > 0: #to avoid go out of the screen
                 if self.labyrinth.grid[self.sprite_y-1][self.sprite_x] != "w":
