@@ -1,9 +1,10 @@
 #!/usr/bin/python3.8
 # -*-coding:utf-8 -
-
-import random
-import time
-from constantes import*
+"""
+The class Map takes into account a .txt file
+representing the different elements of the labyrinth
+"""
+from constantes import SPRITE_SIZE, WALL, ARRIVAL
 
 class Map():
     """ the pygame window map. """
@@ -23,16 +24,19 @@ class Map():
         self.grid = frame
 
     def display(self, window):
-
+        """
+        The display method displays on the game window
+        the element corresponding to "w" or "a"
+        """
         num_line = 0
         for line in self.grid:
             num_sprite = 0
             for sprite in line:
-                X = num_sprite * SPRITE_SIZE
-                Y = num_line * SPRITE_SIZE
+                high = num_sprite * SPRITE_SIZE
+                low = num_line * SPRITE_SIZE
                 if sprite == "w":
-                    window.blit(WALL, (X + 30, Y + 30))
+                    window.blit(WALL, (high + 30, low + 30))
                 if  sprite == "a":
-                    window.blit(ARRIVAL, (X + 30, Y + 30))
+                    window.blit(ARRIVAL, (high + 30, low + 30))
                 num_sprite += 1
             num_line += 1

@@ -1,17 +1,21 @@
 #!/usr/bin/python3.8
 # -*-coding:utf-8 -
-
-import random
-import time
-
-from constantes import*
+"""
+The class personnage manages the movement of our heroe
+"""
+from constantes import SPRITE_SIZE, NB_SPRITE
 
 class Heroe():
-
+    """
+    The class Heroe has x and y positions
+    (pixel and real) as an attribute.
+    It takes the labyrinth as a parameter
+    in order to recover the structure.
+    """
     def __init__(self, labyrinth):
         """ Position in pixel: """
-        self.x = 0
-        self.y = 0
+        self.high = 0
+        self.low = 0
         """ Position in square: """
         self.sprite_x = 0
         self.sprite_y = 0
@@ -26,32 +30,32 @@ class Heroe():
                 if self.labyrinth.grid[self.sprite_y][self.sprite_x+1] != "w":
                     self.sprite_x += 1
                     #Position in pixel:
-                    self.x = self.sprite_x * SPRITE_SIZE
+                    self.high = self.sprite_x * SPRITE_SIZE
 
-        """Move to the left """
+        #Move to the left
         if direction == "left":
             if self.sprite_x > 0:
                 if self.labyrinth.grid[self.sprite_y][self.sprite_x-1] != "w":
                     #move of one sprite
                     self.sprite_x -= 1
                     #Position in pixel:
-                    self.x = self.sprite_x * SPRITE_SIZE
+                    self.high = self.sprite_x * SPRITE_SIZE
 
-        """Move to the bottom """
+        #Move to the bottom
         if direction == "bottom":
             if self.sprite_y < NB_SPRITE-1:
                 if self.labyrinth.grid[self.sprite_y+1][self.sprite_x] != "w":
                     #move on one sprite
                     self.sprite_y += 1
                     #Position in pixel:
-                    self.y = self.sprite_y * SPRITE_SIZE
+                    self.low = self.sprite_y * SPRITE_SIZE
 
 
-        """Move to the top"""
+        #Move to the top
         if direction == "up":
             if self.sprite_y > 0: #to avoid go out of the screen
                 if self.labyrinth.grid[self.sprite_y-1][self.sprite_x] != "w":
                     #move on one sprite
                     self.sprite_y -= 1
                     #Position in pixel:
-                    self.y = self.sprite_y * SPRITE_SIZE
+                    self.low = self.sprite_y * SPRITE_SIZE

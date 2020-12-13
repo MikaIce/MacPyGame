@@ -7,10 +7,13 @@ Game in which we have to move MacGyver to the Guardian through a labyrinth.
 Python script
 Files:
 """
+import time
+import pygame
+
 from constantes import*
-from map import*
-from personnage import*
-from elements import*
+from personnage import Heroe
+from elements import Elements
+from map import Map
 
 #Open game window
 pygame.display.set_icon(ICONE)
@@ -77,10 +80,10 @@ while MAIN_LOOP:
         cut.pin_elements()
 
         #And God create an Heroe
-        MacGyver = Heroe(labyrinth)
+        macgyver = Heroe(labyrinth)
 
 #GAME
-    TOOLS = []
+    tools = []
     while  GAME_LOOP:
 
         pygame.time.Clock().tick(30)
@@ -100,33 +103,33 @@ while MAIN_LOOP:
 
                 #Move our heroe!
                 if event.key == K_RIGHT:
-                    MacGyver.move("right")
+                    macgyver.move("right")
                 if event.key == K_LEFT:
-                    MacGyver.move("left")
+                    macgyver.move("left")
                 if event.key == K_DOWN:
-                    MacGyver.move("bottom")
+                    macgyver.move("bottom")
                 if event.key == K_UP:
-                    MacGyver.move("up")
+                    macgyver.move("up")
 
         #Display the game board
         window.blit(BACKGROUND, (0+30, 0+30))
         labyrinth.display(window)
 
         #Add MacGyver in the Labyrinth with his position
-        window.blit(MG, (MacGyver.x + 30, MacGyver.y + 30))
+        window.blit(MG, (macgyver.high + 30, macgyver.low + 30))
         #Add conditionnal display of Element
 
-        cut.display_elements(window, MacGyver, TOOLS)
-        syringe.display_elements(window, MacGyver, TOOLS)
-        ether.display_elements(window, MacGyver, TOOLS)
+        cut.display_elements(window, macgyver, tools)
+        syringe.display_elements(window, macgyver, tools)
+        ether.display_elements(window, macgyver, tools)
 
         pygame.display.flip()
 
 
-        if labyrinth.grid[MacGyver.sprite_x][MacGyver.sprite_y] == "a":
+        if labyrinth.grid[macgyver.sprite_x][macgyver.sprite_y] == "a":
 
             #The gamer wins if he has the tree elements
-            if len(TOOLS) < 3:
+            if len(tools) < 3:
 
                 #GAME OVER
                 window.blit(GAMEOVER, (30, 30))
@@ -136,7 +139,7 @@ while MAIN_LOOP:
                 print("You loose")
                 GAME_LOOP = False
 
-            if len(TOOLS) == 3:
+            if len(tools) == 3:
                 #YOU WIN
                 window.blit(WIN, (30, 30))
                 pygame.display.flip()

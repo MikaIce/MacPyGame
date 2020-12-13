@@ -1,10 +1,12 @@
 #!/usr/bin/python3.8
-# -*-coding:utf-8 -
+# -*-coding:utf-8 -*
+"""
+the constants file contains the images
+and display settings.
+"""
 
 import pygame
-from pygame.locals import *
-
-pygame.init()
+from pygame.locals import*
 
 #Constant for loops
 MAIN_LOOP = True
