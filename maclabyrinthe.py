@@ -16,6 +16,7 @@ from personnage import Heroe
 from elements import Elements
 from map import Map
 
+
 #Open game window
 pygame.display.set_icon(ICONE)
 pygame.display.set_caption(TITLE_WINDOW)
@@ -24,7 +25,6 @@ pygame.display.set_caption(TITLE_WINDOW)
 MAIN_LOOP = True
 while MAIN_LOOP:
 
-    #Load home screen
     window.blit(BLACK_GROUND, (0, 0))
     window.blit(HOME, (30, 30))
     #Reload display
