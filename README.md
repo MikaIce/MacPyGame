@@ -22,7 +22,7 @@ Le programme sera standalone, c'est-à-dire qu'il pourra être exécuté sur n'i
 
 Installation :
 
-Executer la commande : python maclabyrinthe.py  dans votre console.
+Executer la commande : python main.py  dans votre console.
 
 Démarrage :
 
