@@ -7,10 +7,11 @@ Game in which we have to move MacGyver to the Guardian through a labyrinth.
 Python script
 Files:
 """
+
 import time
 import pygame
 
-from constantes import*
+from constantes import *
 from personnage import Heroe
 from elements import Elements
 from map import Map
@@ -18,7 +19,6 @@ from map import Map
 #Open game window
 pygame.display.set_icon(ICONE)
 pygame.display.set_caption(TITLE_WINDOW)
-
 
 #MAIN
 MAIN_LOOP = True
@@ -29,7 +29,6 @@ while MAIN_LOOP:
     window.blit(HOME, (30, 30))
     #Reload display
     pygame.display.flip()
-
 
 #HOME LOOP
     HOME_LOOP = True
