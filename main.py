@@ -19,7 +19,7 @@ from pygame.locals import QUIT, KEYDOWN, K_RETURN, K_ESCAPE, K_RIGHT, K_LEFT, \
 K_DOWN, K_UP
 
 def main():
-    #Open game window
+    """Open Loop game window """
     pygame.display.set_icon(ICONE)
     pygame.display.set_caption(TITLE_WINDOW)
     window = pygame.display.set_mode(SCREEN_SIZE)
