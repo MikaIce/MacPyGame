@@ -10,13 +10,13 @@ Files:
 import time
 import pygame
 
+from pygame.locals import QUIT, KEYDOWN, K_RETURN, K_ESCAPE, K_RIGHT, K_LEFT, \
+K_DOWN, K_UP
 from constantes import ICONE, TITLE_WINDOW, BLACK_GROUND, SCREEN_SIZE, HOME, \
  BACKGROUND, SYRINGE, ETHER, CUT, GAMEOVER, WIN, MG
 from personnage import Heroe
 from elements import Elements
 from map import Map
-from pygame.locals import QUIT, KEYDOWN, K_RETURN, K_ESCAPE, K_RIGHT, K_LEFT, \
-K_DOWN, K_UP
 
 def main():
     """Open Loop game window """
