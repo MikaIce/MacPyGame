@@ -6,7 +6,6 @@ and display settings.
 """
 
 import pygame
-from pygame.locals import*
 
 #Constant for loops
 MAIN_LOOP = True
